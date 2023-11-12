@@ -16,4 +16,37 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(LR)
+library(bench)
 ```
+
+### compare my function with "lm()" function
+```{r}
+X <- matrix(rnorm(500), ncol = 5)
+beta <- runif(5)
+Y <- X %*% beta + rnorm(100, sd = 0.1)
+  
+ 
+compare <- bench::mark(myfun = {
+  coefs.actual <- as.vector(lr(Y, X)$Coefficents[, 1])
+}, lm.fun = {
+   coefs.expected <- as.vector(lm(Y ~ X)$coefficients)
+})
+summary(compare)
+```
+
+### compare cpp function efficiency in my code
+```{r}
+X <- matrix(rnorm(5000), ncol = 50)
+beta <- runif(50)
+Y <- X %*% beta + rnorm(100, sd = 0.1)
+  
+ 
+compare.Rcpp <- bench::mark(
+  myfun.useRcpp = {
+  coefs.wRcpp <- as.vector(lr(Y, X, Rcpp = T)$Coefficents[, 1])
+}, lm.fun = {
+  coefs.noRcpp <- as.vector(lr(Y, X, Rcpp = F)$Coefficents[, 1])
+})
+summary(compare.Rcpp)
+```
+we can observe that while we use the Rcpp version of my code, the efficiency will improve a lot.
