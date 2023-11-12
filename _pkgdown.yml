@@ -1,0 +1,13 @@
+template:
+  params:
+    bootswatch: lumen
+    ganalytics: UA-54921687-5
+reference:
+- title: Main Fitting Function for Fitting the Linear Regression Model
+  desc: Carry out linear regression and conduct basic hypothesis testing.
+  contents:
+  - lr
+  - LR_cpp
+- title: Package Data Sets
+  contents:
+  - state.x77

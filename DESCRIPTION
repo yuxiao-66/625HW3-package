@@ -1,0 +1,26 @@
+Package: LR
+Type: Package
+Title: Package for Linear Regression
+Version: 1.0
+Date: 2023-11-11
+Author: Yuxiao Nie
+Maintainer: Yuxiao Nie <yuxiaoni@umich.edu>
+Description: Carry out linear regression and conduct basic hypothesis testing.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+RoxygenNote: 7.2.1
+Depends: 
+    R (>= 2.10)
+Imports:
+    bench,
+    car,
+    ggplot2,
+    Rcpp
+LinkingTo: Rcpp, RcppArmadillo
