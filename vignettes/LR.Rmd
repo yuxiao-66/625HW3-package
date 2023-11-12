@@ -19,6 +19,65 @@ library(LR)
 library(bench)
 ```
 
+## How to use this package
+
+Users need to prepare two data sets as prediction variables(X) and outcome variable(Y) respectively. The former one is a numerical matrix, where each row represents an observation and each column represents a prediction variable (intercept should not be included). The latter is a column vector (or a n by 1 numerical matrix) representing the outcome variable. 
+
+*(1) Fit a simple linear regression model:*
+
+We can obtain the the point estimates, standard errors, t values for partial test, and corresponding p-value of the coefficients of the simple linear regression.
+
+```{r, collapse=TRUE}
+y <- as.matrix(state.x77$`Life Exp`)
+colnames(y) <- "Life Exp"
+x <- as.matrix(state.x77$Murder)
+colnames(x) <- "Murder"
+SLR.model <- lr(y, x)
+print(SLR.model$Coefficents)
+```
+*(2) Fit a mutiple linear regression model:*
+
+We can obtain the the point estimates, standard errors, t values for partial test, and corresponding p-value of the coefficients of the simple linear regression.
+
+```{r,collapse=TRUE}
+y <- as.matrix(state.x77$`Life Exp`)
+colnames(y) <- "Life Exp"
+x <- as.matrix(state.x77[,c(1:3, 5:8)])
+MLR.model <- lr(y, x)
+print(MLR.model$Coefficents)
+```
+
+*(3) Calculate the 95% confidence interval of $\beta$'s:*
+
+We can get the lower and upper bound of the confidence interval, with default confidence level of 0.95.
+
+```{r, collapse=TRUE}
+CI.95 <- lr(y, x, CI = TRUE, CI.level = 0.95)$Confidence_Interval
+print(CI.95)
+```
+
+*(4) Calculate $R^2$ and adjusted $R^2$ of linear model:*
+
+```{r}
+r.square <- lr(y, x)$R_squared[[1]]
+adjusted.r.square <- lr(y, x)$R_squared[[2]]
+print(r.square)
+print(adjusted.r.square)
+```
+
+*(5) Calculate the F value for overall F test and the corresponding p-value.*
+
+```{r}
+F.stat <- lr(y, x)$F_statistics
+print(F.stat)
+```
+*(6) Use Rcpp to improve efficiency*
+
+```{r}
+lr.Rcpp <- lr(y, x, Rcpp = T)
+print(lr.Rcpp)
+```
+
 ### compare my function with "lm()" function
 ```{r}
 X <- matrix(rnorm(500), ncol = 5)
