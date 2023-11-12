@@ -17,7 +17,7 @@ If "TRUE", the results will output the confidence interval of betas.}
 \item{CI.level}{a numeric number specifying the alpha-level when calculate CIs of betas (0.95 by default).
 Only use when "CI.beta = TRUE"}
 
-\item{Rcpp, }{"FALSE" by default.
+\item{Rcpp}{"FALSE" by default.
 If "TRUE", the function will use cpp code to speed up the computation.}
 }
 \value{

@@ -16,7 +16,7 @@
 #'@param CI logical, "TRUE" by default.
 #'If "TRUE", the results will output the confidence interval of betas.
 #'
-#'@param Rcpp, "FALSE" by default.
+#'@param Rcpp "FALSE" by default.
 #'If "TRUE", the function will use cpp code to speed up the computation.
 #'
 #'@param CI.level a numeric number specifying the alpha-level when calculate CIs of betas (0.95 by default).
