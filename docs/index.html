@@ -69,8 +69,41 @@
 </h1></div>
 <p><!-- badges: start --> <a href="https://github.com/yuxiao-66/625HW3-package/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/yuxiao-66/625HW3-package/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <!-- badges: end --></p>
 <p><!-- badges: start --> <a href="https://codecov.io/gh/yuxiao-66/625HW3-package" class="external-link"><img src="https://codecov.io/gh/yuxiao-66/625HW3-package/graph/badge.svg?token=XKW936O9D0" alt="codecov"></a> <!-- badges: end --></p>
+<div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
 <div class="section level3">
-<h3 id="section"></h3>
+<h3 id="id_1what-is-linear-regression">*1.What is linear regression?<a class="anchor" aria-label="anchor" href="#id_1what-is-linear-regression"></a>
+</h3>
+<p><a href="https://en.wikipedia.org/wiki/Linear_regression" class="external-link">Linear Regression</a> is a technique to study the linear association between two or more variables. In linear regression, the relationships are modeled using linear predictor functions whose unknown model parameters are estimated from the data. Such models are called <a href="https://en.wikipedia.org/wiki/Linear_model" class="external-link">linear models</a>. We can use linear model to do estimation, hypothesis testing and predictions. The most commonly used method of estimation is the <a href="https://en.wikipedia.org/wiki/Least_squares" class="external-link">least squares</a> approach.</p>
+</div>
+<div class="section level3">
+<h3 id="id_2lm-function">*2.”lm” function<a class="anchor" aria-label="anchor" href="#id_2lm-function"></a>
+</h3>
+<p>The existing <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">stats::lm</a></code> in <code>R</code> is a powerful function that can fit linear models. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance.</p>
+</div>
+<div class="section level3">
+<h3 id="id_3-what-can-lr-package-do">*3. What can “LR” package do?<a class="anchor" aria-label="anchor" href="#id_3-what-can-lr-package-do"></a>
+</h3>
+<p>We develop a R package <code>LR</code>, which can provide some extra results of linear regression.</p>
+<p>Users can obtain the following results easily by using <code>LR</code> package:</p>
+<ul>
+<li>Fit a linear regression model.</li>
+<li>Obtain the point estimates and standard errors of <span class="math inline"><em>β̂</em></span>.</li>
+<li>Obtain the confidence interval(CI) of <span class="math inline"><em>β̂</em></span>.</li>
+<li>Obtain the <span class="math inline"><em>R</em><sup>2</sup></span> and adjusted-<span class="math inline"><em>R</em><sup>2</sup></span>.</li>
+<li>Obtain the <span class="math inline"><em>t</em></span>-statistics and <span class="math inline"><em>F</em></span>-statistics from hypothesis tests, and the corresponding <span class="math inline"><em>p</em></span>-value.</li>
+</ul>
+<p>Furthermore, we include C++ functions in our package to improve computational efficiency.</p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>Install <code>LR</code> package with vignettes from github:</p>
+<pre><code><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"yuxiao-66/625HW3-package"</span>, build_vignettes <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code></pre>
+<p>Load package by:</p>
+<pre><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st">"LR"</span><span class="op">)</span></span></code></pre>
 </div>
 </div>
   </div>
