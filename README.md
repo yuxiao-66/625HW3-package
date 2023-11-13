@@ -45,3 +45,8 @@ Load package by:
 ```
 library("LR")
 ```
+
+Use the following code to find more details about the "LR" package:
+```{r}
+browseVignettes("LR")
+```
